@@ -11,8 +11,11 @@ class Game:
         self.all_player.add(self.player)
         self.all_monster = pygame.sprite.Group()
         self.pressed = {}
+    
+    def start(self):
+        self.is_running = True
         self.spawn_monster()
-        self.spawn_monster()
+        self.spawn_monster()    
     
     def game_over(self):
         self.all_monster = pygame.sprite.Group()
