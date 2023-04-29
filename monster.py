@@ -6,8 +6,8 @@ class Monster(pygame.sprite.Sprite):
     def __init__(self, game):
         super().__init__()
         self.game = game
-        self.health = 70
-        self.max_health = 70
+        self.health = 80
+        self.max_health = 80
         self.attack = 0.3
         self.speed = random.randint(1,2)
         self.image = pygame.image.load('PygameAssets-main\mummy.png')
