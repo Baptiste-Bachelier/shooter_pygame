@@ -6,7 +6,7 @@ from comete_event import CometFALLEvent
 class Game:
     
     def __init__(self):
-        self.is_running = True
+        self.is_running = False
         self.comet_fall = CometFALLEvent()
         self.all_player = pygame.sprite.Group()
         self.player = Player(self)
@@ -16,8 +16,10 @@ class Game:
     
     def start(self):
         self.is_running = True
-        for monster in range(4):
-            self.spawn_monster() 
+        self.spawn_monster()
+        self.spawn_monster()
+        self.spawn_monster()
+        self.spawn_monster() 
     
     def game_over(self):
         self.all_monster = pygame.sprite.Group()
