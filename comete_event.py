@@ -8,6 +8,8 @@ class CometFALLEvent:
         
     def add_percent(self):
         self.percent += self.percent_speed/100
+        if self.percent >= 100:
+            self.percent = 0
         
     def update_comet_bar(self, surface):
         self.add_percent()

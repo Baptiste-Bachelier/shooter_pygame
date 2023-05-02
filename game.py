@@ -16,10 +16,8 @@ class Game:
     
     def start(self):
         self.is_running = True
-        self.spawn_monster()
-        self.spawn_monster()
-        self.spawn_monster()
-        self.spawn_monster() 
+        for i in range(3):
+            self.spawn_monster()
     
     def game_over(self):
         self.all_monster = pygame.sprite.Group()
