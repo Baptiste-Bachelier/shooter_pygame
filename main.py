@@ -3,6 +3,8 @@ import math
 from game import Game
 pygame.init()
 
+clock = pygame.time.Clock()
+FPS = 60 
         
 # generer la fenetre de notre jeu
 pygame.display.set_caption("shooter_game")
@@ -16,7 +18,6 @@ banner = pygame.image.load('PygameAssets-main/banner.png')
 banner = pygame.transform.scale(banner, (500, 500))
 banner_rect = banner.get_rect()
 banner_rect.x = math.ceil(screen.get_width()/4)
-
 play_button = pygame.image.load('PygameAssets-main/button.png')
 play_button = pygame.transform.scale(play_button, (400, 150))
 play_button_rect = play_button.get_rect()
@@ -45,10 +46,17 @@ while runnig:
         elif event.type == pygame.KEYDOWN:
             game.pressed[event.key] = True
             if event.key == pygame.K_z:
-                game.player.launch_projectile()
+                if game.is_running:
+                    game.player.launch_projectile()
+                else:
+                    game.start() 
+                    game.sound_manager.play('click')         
         elif event.type == pygame.KEYUP:
             game.pressed[event.key] = False  
         elif event.type == pygame.MOUSEBUTTONDOWN:
             if play_button_rect.collidepoint(event.pos):
-                game.start()      
+                game.start() 
+                game.sound_manager.play('click')           
+                    
+    clock.tick(FPS)                 
                
