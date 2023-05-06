@@ -31,6 +31,5 @@ class Comet(pygame.sprite.Sprite):
                 self.comet_event.game.start()
                 
         if self.comet_event.game.check_collision(self, self.comet_event.game.all_player ):
-            print("joueur touvhé")
             self.comet_event.all_comete.remove(self)
             self.comet_event.game.player.damage(30)   
